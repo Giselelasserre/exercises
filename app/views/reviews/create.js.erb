@@ -1,0 +1,12 @@
+<% if @review.persist? %>
+
+var newReview = $("<p><%= j @review.content %></p>").hide();
+$('#reviews').append(newReview);
+newReview.slideDown();
+$('#review_content').val('');
+
+
+<% else %>
+  // Create a paragraph for the new review. But hide it.
+$('#new_review').html("<%= j render 'reviews/form', restaurant: @restaurant, review: @review %>");
+<% end %>

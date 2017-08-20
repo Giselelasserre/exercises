@@ -9,4 +9,15 @@ def index
     @review = Review.new
   end
 
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    respond_to do |format|
+      format.html do
+        flash[:notice] = "Your restaurant has been removed"
+        redirect_to restaurants_path
+      end
+      format.js |
+    end
+  end
 end
