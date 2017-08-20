@@ -19,6 +19,7 @@ Bundler.require(*Rails.groups)
 module RestaurantsAjaxified
   class Application < Rails::Application
     config.generators do |generate|
+      config.action_view.embed_authenticity_token_in_remote_forms = true
       generate.assets false
       generate.helper false
     end
